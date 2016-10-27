@@ -14,7 +14,7 @@ var filterEntriesForMatchingRequests = _.partial(_.filter, _, ['request.url', MA
 //  The entry.response.content.text converted from text to an object, and
 //  Return just the dataEvents for the response content.
 var mapEntriesForDataEvents = _.partial(_.map, _, function(entry){
-  return JSON.parse(_.property('response.content.text')(entry)).dataEvents;
+  return JSON.parse(entry.response.content.text).dataEvents;
 });
 
 // Makes a function that will:
